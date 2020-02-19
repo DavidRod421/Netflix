@@ -5,6 +5,7 @@ JDK: openjdk8
 script:
     - echo "Hola travis"
     - mvn package
+    - chmod 400 pruebaAWS.pem
     - ssh-keyscan -H 3.136.12.181 >> ~/.ssh/known_hosts
     - ssh-keyscan -H ec2-13-58-124-92.us-east-2.compute.amazonaws.com >> ~/.ssh/known_hosts
     - scp -i acceso_instancia.pem *.war ubuntu@3.136.12.181:/tmp
